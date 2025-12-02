@@ -12,3 +12,10 @@ CREATE TABLE funcionario (
   nome VARCHAR(150) NOT NULL,
   ativo BOOLEAN NOT NULL DEFAULT true
 );
+
+CREATE TABLE venda (
+  venda_id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  data_hora TIMESTAMPTZ NOT NULL DEFAULT now(),
+  funcionario_id INT REFERENCES funcionario(funcionario_id) ON DELETE SET NULL,
+  total NUMERIC(12,2) NOT NULL CHECK (total >= 0)
+);
