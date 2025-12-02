@@ -5,4 +5,4 @@ CREATE TABLE combustivel (
   nome VARCHAR(100) NOT NULL,
   estoque_l NUMERIC(12,3) NOT NULL DEFAULT 0,
   CONSTRAINT combustivel_nome_uniq UNIQUE (nome)
-)
+);
