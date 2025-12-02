@@ -19,3 +19,11 @@ CREATE TABLE venda (
   funcionario_id INT REFERENCES funcionario(funcionario_id) ON DELETE SET NULL,
   total NUMERIC(12,2) NOT NULL CHECK (total >= 0)
 );
+
+CREATE TABLE venda_item (
+  venda_item_id INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  venda_id INT NOT NULL REFERENCES venda(venda_id) ON DELETE CASCADE,
+  combustivel_id INT NOT NULL REFERENCES combustivel(combustivel_id),
+  quantidade_l NUMERIC(12,3) NOT NULL CHECK (quantidade_l >= 0),
+  preco_unitario NUMERIC(12,4) NOT NULL CHECK (preco_unitario >= 0)
+);
