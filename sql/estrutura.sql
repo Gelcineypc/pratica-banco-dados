@@ -1,0 +1,1 @@
+CREATE DATABASE posto_combustivel;
